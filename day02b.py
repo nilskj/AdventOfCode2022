@@ -2,34 +2,22 @@ def solve(lines):
     scores = 0
     for opponent, your_move in lines:
 
+        diff_opponent = ord(opponent) - ord("A")
+        diff_your_move = ord(your_move) - ord("X")
+
+        scores += 3 * diff_your_move
+
         # loose
         if your_move == "X":
-            if opponent == "A":
-                scores += 3
-            elif opponent == "B":
-                scores += 1
-            else:
-                scores += 2
+            scores += (diff_opponent - 1) % 3 + 1
 
-        # draws
+        # draw
         elif your_move == "Y":
-            if opponent == "A":
-                scores += 1
-            elif opponent == "B":
-                scores += 2
-            else:
-                scores += 3
-            scores += 3
+            scores += diff_opponent + 1
 
         # win
         elif your_move == "Z":
-            if opponent == "A":
-                scores += 2
-            elif opponent == "B":
-                scores += 3
-            else:
-                scores += 1
-            scores += 6
+            scores += (diff_opponent + 1) % 3 + 1
 
     return scores
 
