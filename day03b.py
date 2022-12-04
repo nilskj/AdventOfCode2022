@@ -4,7 +4,7 @@ def solve(lines):
         [in_all] = set(lines[i]) & set(lines[i + 1]) & set(lines[i + 2])
         char_code = ord(in_all)
 
-        p = char_code - 65 + 27 if char_code < 97 else char_code - 96
+        p = char_code - ord("A") + 27 if in_all.isupper() else char_code - ord("a") + 1
         priorities += p
     return priorities
 
