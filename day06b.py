@@ -1,14 +1,13 @@
 def solve(lines, packet_size=4):
-    letters = []
-
     def all_different(s):
         return len(s) >= packet_size and len(s) == len(set(s))
 
+    letters = []
     count = 0
     for ch in lines[0]:
         count += 1
-        letters.append(ch)
-        if len(letters) >= packet_size and all_different(letters[-packet_size:]):
+        letters += ch
+        if all_different(letters[-packet_size:]):
             return count
 
 
