@@ -10,6 +10,10 @@ def solve(lines):
             [grid[dy][x] for dy in range(y + 1, len(grid))],
         ]
 
+    grid = [[0, 1, 3, 4], ["a", "b", "c", "d"], [7, 8, 9, 10]]
+    grid = rays(grid, 2, 3)
+    print(grid)
+
     height = len(lines)
     width = len(lines[0])
 

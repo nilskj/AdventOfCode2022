@@ -13,9 +13,9 @@ def solve(lines):
 
     for i in range(height):
         for j in range(width):
-            h = lines[i][j]
             if any(
-                ray == [] or all(tree < h for tree in ray) for ray in rays(lines, i, j)
+                ray == [] or all(tree < lines[i][j] for tree in ray)
+                for ray in rays(lines, i, j)
             ):
                 num_visible += 1
 
